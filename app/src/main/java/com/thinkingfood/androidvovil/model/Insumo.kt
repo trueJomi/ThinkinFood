@@ -18,8 +18,4 @@ data class Insumo(
         caducidad = doc.getDouble("caducidad")?.toFloat(),
         unidadMedida =doc.getDocumentReference("unidadMedida")
     )
-
-    fun toMap(){
-
-    }
 }
