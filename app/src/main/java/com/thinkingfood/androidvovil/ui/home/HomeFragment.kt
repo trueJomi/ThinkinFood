@@ -4,35 +4,44 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.thinkingfood.androidvovil.viewsModel.ListRecetasViewModel
 import com.thinkingfood.androidvovil.databinding.FragmentHomeBinding
+import kotlinx.coroutines.launch
+
 
 class HomeFragment : Fragment() {
 
-    private var _binding: FragmentHomeBinding? = null
+    private val listaListRecetasViewModel:ListRecetasViewModel by viewModels()
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
+    private var _binding: FragmentHomeBinding? = null
+    private val binding get() = checkNotNull(_binding)
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
-
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-
-        val textView: TextView = binding.textHome
-        homeViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+        super.onCreateView(inflater, container, savedInstanceState)
+        _binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
+        binding.recicleViewRecetas.layoutManager= LinearLayoutManager(context)
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.CREATED){
+                listaListRecetasViewModel.recetas.collect{ listRecetas ->
+                    binding.recicleViewRecetas.adapter=RecetaAdapter(listRecetas){id->
+                        findNavController().navigate(HomeFragmentDirections.moveRecetaDeatail(id))
+                    }
+                }
+            }
         }
-        return root
+
+        return binding.root
     }
 
     override fun onDestroyView() {

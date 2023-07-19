@@ -1,10 +1,10 @@
-package com.thinkingfood.androidvovil.ui.gallery
+package com.thinkingfood.androidvovil.viewsModel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class GalleryViewModel : ViewModel() {
+class ListaCompraViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
         value = "This is gallery Fragment"

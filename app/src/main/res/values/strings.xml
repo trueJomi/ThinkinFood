@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">ThinkingFood</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -7,7 +7,32 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
+    <string name="list_recetas_buttom_left">manos a la obra</string>
+    <string name="list_recetas_buttom_right">lunes</string>
     <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_user">Usuario</string>
+    <string name="content_receta">Content receta</string>
+    <string name="menu_shop_list">Lista de compra </string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="menu_recomend">Recomendaciones</string>
+    <string name="recomend_text">Escribe tu sugerencia</string>
+    <string name="recomend_label">Sugerencia</string>
+    <string name="buttom_enviar">Enviar</string>
+    <string-array name="semana_day">
+        <item>Lunes</item>
+        <item>Martes</item>
+        <item>Miercoles</item>
+        <item>Jueves</item>
+        <item>Viernes</item>
+        <item>Sabado</item>
+        <item>Domingo</item>
+    </string-array>
+    <string name="input_email">E-mail</string>
+    <string name="input_password">Constraseña</string>
+    <string name="input_nombre">Nombre</string>
+    <string name="input_apellido">Apellido</string>
+    <string name="text_receta">Recetas de la semana</string>
+    <string name="text_registerButom">¿Tienes cuenta? registrate</string>
+    <string name="btn_login">Iniciar Sesion</string>
 </resources>
